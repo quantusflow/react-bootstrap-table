@@ -101,8 +101,9 @@ class TableBody extends Component {
       const key = data[this.props.keyField];
       const disable = unselectable.indexOf(key) !== -1;
       const selected = this.props.selectedRowKeys.indexOf(key) !== -1;
+      const selectRowTdClassName = this.props.selectRowTdClassName;
       const selectRowColumn = isSelectRowDefined && !this.props.selectRow.hideSelectColumn ?
-              this.renderSelectRowColumn(selected, inputType, disable, CustomComponent, r) : null;
+              this.renderSelectRowColumn(selected, inputType, disable, selectRowTdClassName, CustomComponent, r) : null;
       // add by bluespring for className customize
       let trClassName = this.props.trClassName;
       if (isFun(this.props.trClassName)) {
@@ -265,14 +266,14 @@ class TableBody extends Component {
     }
   }
 
-  renderSelectRowColumn(selected, inputType, disabled, CustomComponent = null, rowIndex = null) {
+  renderSelectRowColumn(selected, inputType, disabled, tdClassName = null, CustomComponent = null, rowIndex = null) {
     return (
-      <TableColumn dataAlign='center'>
+      <TableColumn dataAlign='center' className={ tdClassName }>
       { CustomComponent ?
         <CustomComponent type={ inputType } checked={ selected } disabled={ disabled }
           rowIndex={ rowIndex }
           onChange={ e=>this.handleSelectRowColumChange(e,
-            e.currentTarget.parentElement.parentElement.parentElement.rowIndex) }/> :
+            e.currentTarget.parentElement.parentElement.parentElement.parentElement.rowIndex) }/> :
         <input type={ inputType } checked={ selected } disabled={ disabled }
           onChange={ e=>this.handleSelectRowColumChange(e,
             e.currentTarget.parentElement.parentElement.rowIndex) }/>

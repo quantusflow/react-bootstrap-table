@@ -271,6 +271,7 @@ class BootstrapTable extends Component {
             onMouseLeave={ this.handleMouseLeave }>
           <TableHeader
             ref='header'
+            selectRowHeaderTdClassName={ this.props.selectRowHeaderTdClassName }
             headerContainerClass={ this.props.headerContainerClass }
             tableHeaderClass={ this.props.tableHeaderClass }
             style={ this.props.headerStyle }
@@ -289,6 +290,7 @@ class BootstrapTable extends Component {
             { this.props.children }
           </TableHeader>
           <TableBody ref='body'
+            selectRowTdClassName={ this.props.selectRowTdClassName }
             bodyContainerClass={ this.props.bodyContainerClass }
             tableBodyClass={ this.props.tableBodyClass }
             style={ { ...style, ...this.props.bodyStyle } }
