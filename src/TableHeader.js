@@ -32,7 +32,8 @@ class TableHeader extends Component {
       'table-condensed': this.props.condensed
     }, this.props.tableHeaderClass);
     let selectRowHeaderCol = null;
-    if (!this.props.hideSelectColumn) selectRowHeaderCol = this.renderSelectRowHeader();
+    const selectRowHeaderTdClassName = this.props.selectRowHeaderTdClassName;
+    if (!this.props.hideSelectColumn) selectRowHeaderCol = this.renderSelectRowHeader(selectRowHeaderTdClassName);
     let i = 0;
     return (
       <div ref='container' className={ containerClasses } style={ this.props.style }>
@@ -55,11 +56,11 @@ class TableHeader extends Component {
     );
   }
 
-  renderSelectRowHeader() {
+  renderSelectRowHeader(tdClassName = null) {
     if (this.props.customComponent) {
       const CustomComponent = this.props.customComponent;
       return (
-        <SelectRowHeaderColumn>
+        <SelectRowHeaderColumn className={ tdClassName }>
           <CustomComponent type='checkbox' checked={ this.props.isSelectAll }
             indeterminate={ this.props.isSelectAll === 'indeterminate' } disabled={ false }
             onChange={ this.props.onSelectAllRow } rowIndex='Header'/>

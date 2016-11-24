@@ -4,7 +4,7 @@ class SelectRowHeaderColumn extends Component {
 
   render() {
     return (
-      <th style={ { textAlign: 'center' } }>
+      <th style={ { textAlign: 'center' } } className={ this.props.className }>
         { this.props.children }
       </th>
     );
