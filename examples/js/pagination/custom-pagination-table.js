@@ -46,8 +46,17 @@ export default class CustomPaginationTable extends React.Component {
       nextPage: 'Next', // Next page button text
       firstPage: 'First', // First page button text
       lastPage: 'Last', // Last page button text
-      paginationShowsTotal: this.renderShowsTotal  // Accept bool or function
+      prePageTitle: 'Go to previous', // Previous page button title
+      nextPageTitle: 'Go to next', // Next page button title
+      firstPageTitle: 'Go to first', // First page button title
+      lastPageTitle: 'Go to Last', // Last page button title
+      paginationShowsTotal: this.renderShowsTotal,  // Accept bool or function
+      paginationPosition: 'top'  // default is bottom, top and both is all available
+      // keepSizePerPageState: true //default is false, enable will keep sizePerPage dropdown state(open/clode) when external rerender happened
       // hideSizePerPage: true > You can hide the dropdown for sizePerPage
+      // alwaysShowAllBtns: true // Always show next and previous button
+      // withFirstAndLast: false > Hide the going to First and Last page button
+      // hidePageListOnlyOnePage: true > Hide the page list if only one page.
     };
 
     return (

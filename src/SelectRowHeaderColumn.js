@@ -4,13 +4,15 @@ class SelectRowHeaderColumn extends Component {
 
   render() {
     return (
-      <th style={ { textAlign: 'center' } } className={ this.props.className }>
+      <th rowSpan={ this.props.rowCount } style={ { textAlign: 'center' } } className={ this.props.className }
+        data-is-only-head={ false }>
         { this.props.children }
       </th>
     );
   }
 }
 SelectRowHeaderColumn.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
+  rowCount: PropTypes.number
 };
 export default SelectRowHeaderColumn;
