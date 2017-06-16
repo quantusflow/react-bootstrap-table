@@ -138,7 +138,9 @@ class TableBody extends Component {
       const selected = this.props.selectedRowKeys.indexOf(key) !== -1;
       const selectRowTdClassName = this.props.selectRowTdClassName;
       const selectRowColumn = isSelectRowDefined && !this.props.selectRow.hideSelectColumn ?
-        this.renderSelectRowColumn(selected, inputType, disable, selectRowTdClassName, CustomComponent, r, data) : null;
+        this.renderSelectRowColumn(selected, inputType, disable,
+          selectRowTdClassName, CustomComponent, r, data) :
+        null;
       const expandedRowColumn = this.renderExpandRowColumn(
           this.props.expandableRow && this.props.expandableRow(data),
           this.props.expanding.indexOf(key) > -1,

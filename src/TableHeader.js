@@ -44,9 +44,8 @@ class TableHeader extends Component {
       'table-condensed': this.props.condensed
     }, this.props.tableHeaderClass);
 
-    let selectRowHeaderCol = null;
     const selectRowHeaderTdClassName = this.props.selectRowHeaderTdClassName;
-    
+
     const rowCount = Math.max(...React.Children.map(this.props.children, elm =>
       (elm && elm.props.row) ? Number(elm.props.row) : 0
     ));
@@ -128,7 +127,8 @@ class TableHeader extends Component {
         </SelectRowHeaderColumn>
       );
     } else if (this.props.rowSelectType === Const.ROW_SELECT_SINGLE) {
-      return (<SelectRowHeaderColumn key={ rowKey } rowCount={ rowCount } className={ tdClassName }/>);
+      return (<SelectRowHeaderColumn key={ rowKey } rowCount={ rowCount }
+                className={ tdClassName }/>);
     } else if (this.props.rowSelectType === Const.ROW_SELECT_MULTI) {
       return (
         <SelectRowHeaderColumn key={ rowKey } rowCount={ rowCount } className={ tdClassName }>
